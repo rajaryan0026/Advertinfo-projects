@@ -27,7 +27,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
@@ -112,64 +112,76 @@
     <main>
         
         <!-- HERO SECTION -->
+                <!-- HERO SECTION -->
         <section id="hero" class="hero-wrapper">
-            <img src="assets/hero_cityscape.png" alt="Indian Cityscape Billboards" class="hero-cityscape-img">
-            <div class="hero-overlay"></div>
+            <!-- Immersive Premium Animated Background -->
+            <div class="hero-background">
+                <div class="hero-cityscape-layer"></div>
+                <div class="hero-ambient-glows">
+                    <div class="glow-orb glow-orb-1"></div>
+                    <div class="glow-orb glow-orb-2"></div>
+                </div>
+                <canvas id="hero-canvas"></canvas>
+                <div class="hero-glass-overlay"></div>
+            </div>
+
             <div class="container hero-content">
                 <div class="hero-title-reveal">
-                    <h1 class="text-gradient">COMMAND ATTENTION.<br>SCALE NATIONWIDE.</h1>
+                    <h1 class="text-gradient">Visibility That Dominates.<br>Campaigns That Move Markets.</h1>
                 </div>
                 <p class="hero-subheadline-fade">
-                    Outdoor Advertising • ATL • BTL • Digital Marketing • Influencer Marketing • Events • Media Planning
+                    Advertinfo is India's 360? Advertising & Brand Visibility Partner, delivering Outdoor Advertising, ATL, BTL Activations, Digital Marketing, Influencer Campaigns, Media Planning, and Event Management solutions across the country.
                 </p>
                 <div class="hero-btns-fade">
-                    <a href="#contact" class="btn-premium btn-primary">
+                    <a href="#contact" class="btn-premium btn-primary magnetic-btn">
                         Book Free Consultation
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     </a>
-                    <a href="#services" class="btn-premium btn-outline-luxury">View Our Services</a>
+                    <a href="#services" class="btn-premium btn-outline-luxury magnetic-btn">Explore Our Services</a>
                 </div>
-                <div class="hero-trust-indicators">
-                    <div class="trust-item">
-                        <span class="trust-label">Google Rating</span>
-                        <span class="trust-value">⭐ Rated 4.6</span>
+
+                <!-- Premium Statistics Section directly inside Hero -->
+                <div class="hero-stats-row hero-stats-strip">
+                    <div class="hero-stat-card scroll-reveal">
+                        <div class="hero-stat-num"><span class="stat-num-val" data-target="500">0</span>+</div>
+                        <div class="hero-stat-label">Campaigns Executed</div>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-label">Experience</span>
-                        <span class="trust-value">500+ Campaigns</span>
+                    <div class="hero-stat-card scroll-reveal stagger-1">
+                        <div class="hero-stat-num"><span class="stat-num-val" data-target="100">0</span>+</div>
+                        <div class="hero-stat-label">Brand Partners</div>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-label">Reach</span>
-                        <span class="trust-value">Pan India Network</span>
+                    <div class="hero-stat-card scroll-reveal stagger-2">
+                        <div class="hero-stat-num"><span class="stat-num-val" data-target="50">0</span>+</div>
+                        <div class="hero-stat-label">Cities Covered</div>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-label">Support</span>
-                        <span class="trust-value">24x7 Campaign Monitoring</span>
+                    <div class="hero-stat-card scroll-reveal stagger-3">
+                        <div class="hero-stat-num">Pan India</div>
+                        <div class="hero-stat-label">Network Reach</div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- STATS STRIP -->
-        <section class="hero-stats-strip">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-num"><span class="stat-num-val" data-target="50">0</span><span>M+</span></div>
-                        <span class="stat-label">Audience Reach</span>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num"><span class="stat-num-val" data-target="1000">0</span><span>+</span></div>
-                        <span class="stat-label">Advertising Locations</span>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num"><span class="stat-num-val" data-target="100">0</span><span>+</span></div>
-                        <span class="stat-label">Brand Partners</span>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num"><span class="stat-num-val" data-target="25">0</span><span>+</span></div>
-                        <span class="stat-label">Cities Covered</span>
-                    </div>
+            <!-- Premium Service Ticker spanning 100% width at the bottom of Hero -->
+            <div class="hero-ticker">
+                <div class="hero-ticker-track">
+                    <span>Outdoor Advertising</span>
+                    <span class="ticker-dot">?</span>
+                    <span>ATL Advertising</span>
+                    <span class="ticker-dot">?</span>
+                    <span>BTL Activations</span>
+                    <span class="ticker-dot">?</span>
+                    <span>Digital Marketing</span>
+                    <span class="ticker-dot">?</span>
+                    <span>Influencer Marketing</span>
+                    <span class="ticker-dot">?</span>
+                    <span>Event Management</span>
+                    <span class="ticker-dot">?</span>
+                    <span>Media Planning</span>
+                    <span class="ticker-dot">?</span>
+                    <span>Brand Strategy</span>
+                    <span class="ticker-dot">?</span>
+                    <span>Political Campaigns</span>
+                    <span class="ticker-dot">?</span>
                 </div>
             </div>
         </section>

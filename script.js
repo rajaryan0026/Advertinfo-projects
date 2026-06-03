@@ -353,4 +353,101 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 12. --- Immersive Canvas Particles ---
+    const canvas = document.getElementById('hero-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 45;
+
+        const resize = () => {
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+        };
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset(true);
+            }
+            reset(init = false) {
+                this.x = Math.random() * canvas.width;
+                this.y = init ? (Math.random() * canvas.height) : (canvas.height + Math.random() * 100);
+                this.size = Math.random() * 2 + 1;
+                this.speed = Math.random() * 0.4 + 0.15;
+                this.opacity = Math.random() * 0.4 + 0.1;
+                this.fadeSpeed = 0.003;
+                this.wobbleSpeed = Math.random() * 0.02 + 0.005;
+                this.wobbleRange = Math.random() * 0.5 + 0.1;
+                this.angle = Math.random() * Math.PI * 2;
+            }
+            update() {
+                this.y -= this.speed;
+                this.angle += this.wobbleSpeed;
+                this.x += Math.sin(this.angle) * this.wobbleRange;
+                if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
+                    this.reset(false);
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 106, 0, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        };
+        animate();
+    }
+
+    // 13. --- Infinite Service Ticker Loop ---
+    const tickerTrack = document.querySelector('.hero-ticker-track');
+    if (tickerTrack) {
+        const items = Array.from(tickerTrack.children);
+        // Duplicate multiple times to make sure it covers screen width and loops seamlessly
+        for (let i = 0; i < 3; i++) {
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                tickerTrack.appendChild(clone);
+            });
+        }
+    }
+
+    // 14. --- Magnetic Button Micro-Interactions ---
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // Move button slightly towards cursor
+            btn.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
+            if (btn.querySelector('svg')) {
+                btn.querySelector('svg').style.transform = `translate3d(${x * 0.15}px, ${y * 0.15}px, 0)`;
+            }
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            // Smoothly reset position
+            btn.style.transform = 'translate3d(0, 0, 0)';
+            if (btn.querySelector('svg')) {
+                btn.querySelector('svg').style.transform = 'translate3d(0, 0, 0)';
+            }
+        });
+    });
+
 });
