@@ -1,8 +1,8 @@
 :root {
     /* Color System - Ultra Premium Luxury */
-    --c-black: #0B0B0B;
-    --c-dark-gray: #161616;
-    --c-light-gray: #222222;
+    --c-black: #0A0A0A;
+    --c-dark-gray: #111111;
+    --c-light-gray: #111111;
     --c-white: #FFFFFF;
     --c-orange: #FF6A00;
     --c-orange-glow: rgba(255, 106, 0, 0.2);
@@ -12,7 +12,7 @@
     --c-glass-bg: rgba(22, 22, 22, 0.7);
 
     /* Typography System */
-    --f-head: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --f-head: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --f-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
     /* Spacing & Transitions */
@@ -183,7 +183,7 @@ section {
 .orb-2 {
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, #7000FF 0%, rgba(11, 11, 11, 0) 70%);
+    background: radial-gradient(circle, var(--c-orange) 0%, rgba(11, 11, 11, 0) 70%);
     bottom: 20%;
     right: -15%;
     animation-delay: -5s;
@@ -623,7 +623,7 @@ section {
 .glow-orb-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #8A2BE2 0%, transparent 70%); /* Deep luxury violet contrast */
+    background: radial-gradient(circle, var(--c-orange) 0%, transparent 70%);
     bottom: 5%;
     right: 15%;
     animation: orbPulse2 15s infinite alternate ease-in-out;
@@ -2277,4 +2277,128 @@ textarea.form-control {
 .faq-answer p {
     font-size: 15px;
     line-height: 1.6;
+}
+
+/* About Section Cityscape Image */
+.about-image-wrap {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--c-border);
+    height: 100%;
+    min-height: 400px;
+}
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+.about-image-wrap:hover .about-image {
+    transform: scale(1.05);
+}
+
+/* Service Capabilities Section */
+.service-capabilities {
+    padding: 120px 0;
+}
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+.capability-card {
+    background-color: var(--c-dark-gray);
+    border: 1px solid var(--c-border);
+    padding: 40px;
+    border-radius: 4px;
+    transition: transform var(--transition-medium), border-color var(--transition-medium);
+}
+.capability-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--c-orange);
+}
+.capability-card h4 {
+    font-family: var(--f-head);
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--c-white);
+    letter-spacing: -0.5px;
+}
+.capability-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #999;
+}
+
+/* Location Showcase Section */
+.location-showcase {
+    padding: 120px 0;
+}
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+.location-card {
+    background-color: var(--c-dark-gray);
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform var(--transition-medium), border-color var(--transition-medium);
+}
+.location-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--c-orange);
+}
+.location-img-wrap {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+.location-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+.location-card:hover .location-img {
+    transform: scale(1.05);
+}
+.location-info {
+    padding: 32px;
+}
+.location-info h4 {
+    font-family: var(--f-head);
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--c-white);
+}
+.location-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #999;
+    margin-bottom: 20px;
+}
+.location-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    border-top: 1px solid var(--c-border);
+    padding-top: 20px;
+}
+.location-stat-item {
+    font-size: 12px;
+    color: #666;
+}
+.location-stat-val {
+    display: block;
+    font-family: var(--f-head);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--c-orange);
+    margin-bottom: 4px;
 }
