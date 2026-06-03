@@ -639,6 +639,20 @@ section {
     100% { transform: translate(-30px, -20px) scale(0.9); opacity: 0.12; }
 }
 
+@keyframes titleReveal {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUpReveal {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 canvas#hero-canvas {
     position: absolute;
     top: 0;
