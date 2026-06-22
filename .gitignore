@@ -17,6 +17,11 @@
 /.next/
 /out/
 
+# Vite
+/dist/
+/dist-ssr/
+*.local
+
 # production
 /build
 
